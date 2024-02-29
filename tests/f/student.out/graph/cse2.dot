@@ -1,0 +1,28 @@
+digraph g {
+    // header
+    rankdir=LR;
+    margin=0.01;
+    node [shape="plaintext"];
+    edge [arrowhead="diamond"];
+    // circuit 
+    and23607 [label="(a and b)", image="../../gates/and_noleads.png"];
+    and23615 [label="(c and d)", image="../../gates/and_noleads.png"];
+    and23658 [label="(a and b)", image="../../gates/and_noleads.png"];
+    and23666 [label="(c and d)", image="../../gates/and_noleads.png"];
+    or23623 [label="((a and b) or (c and d))", image="../../gates/or_noleads.png"];
+    or23674 [label="((a and b) or (c and d))", image="../../gates/or_noleads.png"];
+    var23560[label="b"];
+    var23563[label="d"];
+    var23566[label="x"];
+    var23568[label="a"];
+    var23571[label="c"];
+    var23575[label="y"];
+    var23568 -> and23607 ;
+    var23560 -> and23607 ;
+    var23571 -> and23615 ;
+    var23563 -> and23615 ;
+    and23607 -> or23623 ;
+    and23615 -> or23623 ;
+    or23623 -> var23566 ;
+    or23623 -> var23575 ;
+}

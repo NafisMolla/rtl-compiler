@@ -1,0 +1,52 @@
+digraph g {
+    // header
+    rankdir=LR;
+    margin=0.01;
+    node [shape="plaintext"];
+    edge [arrowhead="diamond"];
+    // circuit 
+    and3017 [label="(not full_adderA and full_adderB)", image="../../gates/and_noleads.png"];
+    and3026 [label="(not full_adderB and full_adderA)", image="../../gates/and_noleads.png"];
+    and3043 [label="(((not full_adderA and full_adderB) or (not full_adderB and full_adderA)) and not full_adderCin)", image="../../gates/and_noleads.png"];
+    and3052 [label="(not full_adderA and full_adderB)", image="../../gates/and_noleads.png"];
+    and3061 [label="(not full_adderB and full_adderA)", image="../../gates/and_noleads.png"];
+    and3078 [label="(not ((not full_adderA and full_adderB) or (not full_adderB and full_adderA)) and full_adderCin)", image="../../gates/and_noleads.png"];
+    and3211 [label="(not full_adderA and full_adderB)", image="../../gates/and_noleads.png"];
+    and3220 [label="(not full_adderB and full_adderA)", image="../../gates/and_noleads.png"];
+    and3236 [label="(((not full_adderA and full_adderB) or (not full_adderB and full_adderA)) and full_adderCin)", image="../../gates/and_noleads.png"];
+    and3244 [label="(full_adderA and full_adderB)", image="../../gates/and_noleads.png"];
+    or3034 [label="((not full_adderA and full_adderB) or (not full_adderB and full_adderA))", image="../../gates/or_noleads.png"];
+    or3069 [label="((not full_adderA and full_adderB) or (not full_adderB and full_adderA))", image="../../gates/or_noleads.png"];
+    or3086 [label="((((not full_adderA and full_adderB) or (not full_adderB and full_adderA)) and not full_adderCin) or (not ((not full_adderA and full_adderB) or (not full_adderB and full_adderA)) and full_adderCin))", image="../../gates/or_noleads.png"];
+    or3228 [label="((not full_adderA and full_adderB) or (not full_adderB and full_adderA))", image="../../gates/or_noleads.png"];
+    or3252 [label="((((not full_adderA and full_adderB) or (not full_adderB and full_adderA)) and full_adderCin) or (full_adderA and full_adderB))", image="../../gates/or_noleads.png"];
+    var2734[label="full_adderS"];
+    var2757[label="full_adderCin"];
+    var2760[label="full_adderCout"];
+    var2772[label="full_adderA"];
+    var2773[label="full_adderB"];
+    var2772 -> not3206 ;
+    not3206 -> and3211 ;
+    var2773 -> and3211 ;
+    var2773 -> not3215 ;
+    not3215 -> and3026 ;
+    var2772 -> and3026 ;
+    and3211 -> or3228 ;
+    and3026 -> or3228 ;
+    or3228 -> and3236 ;
+    var2757 -> and3236 ;
+    var2772 -> and3244 ;
+    var2773 -> and3244 ;
+    and3236 -> or3252 ;
+    and3244 -> or3252 ;
+    or3252 -> var2760 ;
+    var2757 -> not3038 ;
+    or3228 -> and3043 ;
+    not3038 -> and3043 ;
+    or3228 -> not3073 ;
+    not3073 -> and3078 ;
+    var2757 -> and3078 ;
+    and3043 -> or3086 ;
+    and3078 -> or3086 ;
+    or3086 -> var2734 ;
+}
